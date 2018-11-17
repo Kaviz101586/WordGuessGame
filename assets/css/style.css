@@ -1,0 +1,31 @@
+#logopic {
+    width: 400px;
+    height: 400px;
+}
+
+#noose {
+    width: 600px;
+    height: 400px;
+}
+
+#instructions {
+    text-align:center
+}
+
+.guessingarea, #wincounter, #wrongguess {
+    font-weight: 100%
+}
+
+body  {
+    background-color: black
+}
+
+canvas{
+    color: white;
+    border: white dashed 2px;
+    padding:15px;
+}
+
+html {
+    height: 960px
+}
