@@ -1,71 +1,46 @@
-var winCounter=0
-var wrongGuess
-var guessingArea
-var gameOptions = ["Queen","Led Zeppelin","The Rolling Stones","The Who","Aerosmith","Allman Brothers","Def Leppard","ACDC","Guns N Roses","The Spinners","Jay and the Americans","The Beatles"]
-var livesRemaining = 7
+var wordArr = ["Queen","Led Zeppelin","The Rolling Stones","The Who","Aerosmith","Allman Brothers","Def Leppard","ACDC","Guns N Roses","Jay and the Americans","The Beatles"];
 
+var activeWord = wordArr[Math.floor(Math.random()*wordArr.length)];
 
+var answerArr = []
+    for (var i = 0; i < activeWord.length; i++) {
+        answerArr.push("_");
 
+var letsLeft = activeWord.length
 
-//Hangman drawing - https://codepen.io/cathydutton/pen/ldazc
-canvas =  function(){
+var guess
 
-    myStickman = document.getElementById("#stickman");
-    context = myStickman.getContext('2d');
-    context.beginPath();
-    context.strokeStyle = "#fff";
-    context.lineWidth = 2;
-  };
-  
-    head = function(){
-      myStickman = document.getElementById("#stickman");
-      context = myStickman.getContext('2d');
-      context.beginPath();
-      context.arc(60, 25, 10, 0, Math.PI*2, true);
-      context.stroke();
-    }
-    
-  draw = function($pathFromx, $pathFromy, $pathTox, $pathToy) {
-    
-    context.moveTo($pathFromx, $pathFromy);
-    context.lineTo($pathTox, $pathToy);
-    context.stroke(); 
+var rightGuess = [];
+
+var wrongGuess = [];
+
+var lives = 7;
+
+var wins = 0
+
+document.getElementById("winCounter").innerHTML = wins;
+
+document.onkeyup = function(event) {
+    guess = event.key;
+    for (var x = 0; x < activeWord.length; x++) {
+        if(activeWord[x] === guess) {
+            if(answerArray [x] !== guess) {
+            letsLeft--;
+            }
+        answerArr[x] = guess;
+        document.getElementById("guessingArea").innerHTML = answerArr.join(" ");
+        }
+        
+        if (answerArr.includes(guess))
 }
 
-   frame1 = function() {
-     draw (0, 150, 150, 150);
-   };
-   
-   frame2 = function() {
-     draw (10, 0, 10, 600);
-   };
-  
-   frame3 = function() {
-     draw (0, 5, 70, 5);
-   };
-  
-   frame4 = function() {
-     draw (60, 5, 60, 15);
-   };
-  
-   torso = function() {
-     draw (60, 36, 60, 70);
-   };
-  
-   rightArm = function() {
-     draw (60, 46, 100, 50);
-   };
-  
-   leftArm = function() {
-     draw (60, 46, 20, 50);
-   };
-  
-   rightLeg = function() {
-     draw (60, 70, 100, 100);
-   };
-  
-   leftLeg = function() {
-     draw (60, 70, 20, 100);
-   };
-  
-  drawArray = [rightLeg, leftLeg, rightArm, leftArm,  torso,  head, frame4, frame3, frame2, frame1]; 
+
+function begin() {
+
+
+    document.getElementById("guessingArea").innerHTML = rightGuess.join(" ");
+    document.getElementById("guessesLeft").innerHTML = lives
+}
+
+begin();
+

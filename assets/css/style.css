@@ -1,11 +1,6 @@
 #logopic {
     width: 400px;
-    height: 400px;
-}
-
-#noose {
-    width: 600px;
-    height: 400px;
+    height: 200px;
 }
 
 #instructions {
@@ -28,4 +23,8 @@ canvas{
 
 html {
     height: 960px
+}
+
+.wrapper {
+    background-color:black
 }
