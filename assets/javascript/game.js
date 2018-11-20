@@ -25,7 +25,7 @@ document.getElementById("guessingArea").innerHTML = answerArr.join(" ")
 document.onkeyup = function(event) {
     guess = event.key;
     
-    if (lives == 0) {
+    if (lives == 1) {
         alert("You lose! The correct answer was " + activeWord)
     }
     
@@ -40,9 +40,11 @@ document.onkeyup = function(event) {
         
         if(answerArr.includes(guess)==false) {
         lives--}
+        document.getElementById("guessesLeft").innerHTML = lives;
+        document.getElementById("wrongGuess").innerHTML = wrongGuess.join(" ") 
     }
 
-document.getElementById("guessesLeft").innerHTML = lives;
+
 document.getElementById("wrongGuess").innerHTML = wrongGuess.join(" ")
 
 
