@@ -25,7 +25,12 @@ document.getElementById("guessingArea").innerHTML = answerArr.join(" ")
 document.onkeyup = function(event) {
     guess = event.key;
     
-    if (lives == 1) {
+    if (letsLeft === 0) {
+        alert("You win! Well done!")
+        begin()
+    }
+
+    else if (lives == 1) {
         alert("You lose! The correct answer was " + activeWord)
     }
     
@@ -33,15 +38,19 @@ document.onkeyup = function(event) {
     for (var x = 0; x < activeWord.length; x++) {
         if(activeWord[x] === guess) {
         answerArr[x] = guess;
-        console.log(answerArr[x])
-        document.getElementById("guessingArea").innerHTML = answerArr.join(" ");        
-        console.log(activeWord[x])}
+        document.getElementById("guessingArea").innerHTML = answerArr.join(" ");   
+        letsLeft--;     
+        }
         }}
         
         if(answerArr.includes(guess)==false) {
         lives--}
         document.getElementById("guessesLeft").innerHTML = lives;
         document.getElementById("wrongGuess").innerHTML = wrongGuess.join(" ") 
+
+        if(letsLeft == 0) {
+            alert("You win!")
+        }
     }
 
 
